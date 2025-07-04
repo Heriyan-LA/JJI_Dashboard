@@ -125,41 +125,39 @@ def main():
     
 
     with tab4:
-    st.header("Prediksi Status Mahasiswa")
-    st.warning("Masukkan data mahasiswa untuk memprediksi status")
+        st.header("Prediksi Status Mahasiswa")
+        st.warning("Masukkan data mahasiswa untuk memprediksi status")
     
-    col1, col2 = st.columns(2)
-    with col1:
-        age = st.number_input("Usia", min_value=17, max_value=60, value=20)
-        marital_status = st.selectbox("Status Pernikahan", [1, 2, 3, 4, 5, 6])
-        application_mode = st.number_input("Mode Aplikasi", min_value=1, max_value=60, value=1)
+        col1, col2 = st.columns(2)
+        with col1:
+            age = st.number_input("Usia", min_value=17, max_value=60, value=20)
+            marital_status = st.selectbox("Status Pernikahan", [1, 2, 3, 4, 5, 6])
+            application_mode = st.number_input("Mode Aplikasi", min_value=1, max_value=60, value=1)
         
-    with col2:
-        admission_grade = st.number_input("IPK Masuk", min_value=0.0, max_value=200.0, value=120.0)
-        previous_grade = st.number_input("IPK Sebelumnya", min_value=0.0, max_value=200.0, value=130.0)
-        tuition_fees = st.selectbox("Pembayaran Uang Kuliah", [0, 1])
+        with col2:
+            admission_grade = st.number_input("IPK Masuk", min_value=0.0, max_value=200.0, value=120.0)
+            previous_grade = st.number_input("IPK Sebelumnya", min_value=0.0, max_value=200.0, value=130.0)
+            tuition_fees = st.selectbox("Pembayaran Uang Kuliah", [0, 1])
     
-    if st.button("Prediksi Status"):
-        # Buat dictionary sesuai kolom di X_train
-        input_dict = {col: 0 for col in X_train.columns}  # Inisialisasi dengan 0
+        if st.button("Prediksi Status"):
+            # Buat dictionary sesuai kolom di X_train
+            input_dict = {col: 0 for col in X_train.columns}  # Inisialisasi dengan 0
         
-        # Isi nilai untuk kolom tertentu
-        input_dict['Marital status'] = marital_status
-        input_dict['Application mode'] = application_mode
-        input_dict['Admission grade'] = admission_grade
-        input_dict['Previous grade'] = previous_grade
-        input_dict['Tuition fees'] = tuition_fees
-        input_dict['Age'] = age
+            # Isi nilai untuk kolom tertentu
+            input_dict['Marital status'] = marital_status
+            input_dict['Application mode'] = application_mode
+            input_dict['Admission grade'] = admission_grade
+            input_dict['Previous grade'] = previous_grade
+            input_dict['Tuition fees'] = tuition_fees
+            input_dict['Age'] = age
         
-        # Konversi ke DataFrame
-        input_data = pd.DataFrame([input_dict], columns=X_train.columns)
+            # Konversi ke DataFrame
+            input_data = pd.DataFrame([input_dict], columns=X_train.columns)
         
-        prediction = model.predict(input_data)[0]
-        status_map = {0: 'Dropout', 1: 'Graduate', 2: 'Enrolled'}
-        st.success(f"Prediksi Status: **{status_map.get(prediction, 'Unknown')}**")
+            prediction = model.predict(input_data)[0]
+            status_map = {0: 'Dropout', 1: 'Graduate', 2: 'Enrolled'}
+            st.success(f"Prediksi Status: **{status_map.get(prediction, 'Unknown')}**")
         
-        # Feature importance (kode selanjutnya tetap sama)
-        ...
         
 if __name__ == "__main__":
     main()
