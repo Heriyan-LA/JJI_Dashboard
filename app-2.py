@@ -162,7 +162,7 @@ def main():
     
     with tab3:
         st.header("Model Machine Learning")
-        st.info("Menggunakan algoritma Random Forest untuk memprediksi status mahasiswa")
+        st.info("Menggunakan algoritma Random Forest Classifier untuk memprediksi status mahasiswa")
         
         # Preprocessing data
         df_processed = preprocess_data(data.copy())
