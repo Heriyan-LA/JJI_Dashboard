@@ -105,7 +105,7 @@ def plot_distributions(df, chart_type):
             for i, v in enumerate(avg_grades.values):
                 ax2.text(i, v + 0.5, f"{v:.2f}", ha='center', fontweight='bold')
         
-        st.pyplot(fig2)
+        #st.pyplot(fig2)
     else:
         st.warning("Kolom IPK tidak ditemukan atau tidak numerik. Tidak dapat membuat visualisasi hubungan IPK-Status.")
 
