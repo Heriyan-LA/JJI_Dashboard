@@ -81,7 +81,7 @@ with st.form("prediction_form"):
     age = st.slider("Usia saat mendaftar", 16, 60, 20)
     debtor = st.selectbox("Debtor (utang akademik)?", options=[0, 1], format_func=lambda x: "Tidak" if x == 0 else "Ya")
     attendance = st.selectbox("Attendance", options=[0, 1], format_func=lambda x: "Daytime" if x == 0 else "Evening")
-    scholarship = = st.selectbox("Scholarship", options=[0, 1], format_func=lambda x: "Ya" if x == 0 else "Tidak")
+    scholarship = st.selectbox("Scholarship", options=[0, 1], format_func=lambda x: "Ya" if x == 0 else "Tidak")
     previous = st.slider("Prestasi Akademik Sebelumnya (0–200)", 0.0, 200.0, step=0.1)
     unemployment = st.slider("Faktor Ekonomi Makro (0–20)", 0.0, 20.0, step=0.1)
     submitted = st.form_submit_button("🔍 Prediksi Status")
