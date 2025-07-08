@@ -133,29 +133,6 @@ def plot_analysis(df):
         st.pyplot(fig)
     except Exception as e:
         st.warning(f"Tidak dapat menampilkan feature importance: {e}")
-    
-    # 3. Raincloud plot IPK vs Status
-st.subheader("Distribusi Nilai Masuk Mahasiswa (Raincloud Plot)")
-if 'Admission_grade' in df.columns and 'Status' in df.columns:
-    fig, ax = plt.subplots(figsize=(10, 6))
-
-    # Raincloud plot
-    pt.RainCloud(x='Status', y='Admission_grade', data=df,
-                 palette='Set2', width_viol=0.6, ax=ax,
-                 move=0.2, bw=.2, alpha=0.65, dodge=True,
-                 pointplot=True, boxplot=True)
-
-    ax.set_title('Raincloud Plot: Nilai Masuk Mahasiswa vs Status')
-    ax.set_xlabel('Status Mahasiswa')
-    ax.set_ylabel('Nilai Masuk (Skala 0-200)')
-
-    st.pyplot(fig)
-
-    stats = df.groupby('Status')['Admission_grade'].describe().T
-    st.write("📊 Statistik Deskriptif Nilai Masuk:")
-    st.dataframe(stats.round(2))
-else:
-    st.warning("Kolom 'Admission_grade' atau 'Status' tidak tersedia.")
 
 
     # 4. Stacked Bar Kehadiran vs DO Rate
