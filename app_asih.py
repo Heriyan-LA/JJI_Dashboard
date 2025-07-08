@@ -154,7 +154,7 @@ def plot_analysis(df):
     stats = df.groupby('Status')['Admission_grade'].describe().T
     st.write("📊 Statistik Deskriptif Nilai Masuk:")
     st.dataframe(stats.round(2))
-else:
+    else:
     st.warning("Kolom 'Admission_grade' atau 'Status' tidak tersedia.")
 
 
