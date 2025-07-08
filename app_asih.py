@@ -10,7 +10,7 @@ try:
     model = joblib.load('model/model_rf.pkl')
     scaler = joblib.load('model/scaler.pkl')
     # Load dataset untuk analisis
-    df_insight = pd.read_csv('data/dropout_analysis.csv')
+    df_insight = pd.read_csv('data.csv')
     
     # Cari kolom target
     target_col = None
