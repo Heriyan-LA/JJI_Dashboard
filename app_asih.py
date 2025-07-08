@@ -1,4 +1,3 @@
-%%writefile app_asih.py
 import streamlit as st
 import numpy as np
 import joblib
