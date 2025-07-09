@@ -519,4 +519,4 @@ with tab2:
 
 # Footer di luar tab
 st.divider()
-st.caption("© 2023 Dashboard Analisis Status Mahasiswa | Sistem Pendukung Keputusan Akademik")
+st.caption("© 2025 Dashboard Analisis Status Mahasiswa | Sistem Pendukung Keputusan Akademik")
